@@ -20,4 +20,6 @@ python Weather_Forecast.py
 
 Output
 ======
-<------------------------WEATHER REPORT: KOLKATA---------------------------> Temperature is: 28 degree celcius Condition : Rain
+<------------------------WEATHER REPORT: KOLKATA---------------------------> 
+Temperature is: 28 degree celcius 
+Condition : Rain
