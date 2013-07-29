@@ -3,6 +3,8 @@ import re
 
 city=raw_input("Enter City:")
 
+# Vary Sources as per city
+
 if(city=="Kolkata" or city=="kolkata" or city=="KOLKATA"):
     source=urllib2.urlopen("http://www.accuweather.com/en/in/calcutta/206690/weather-forecast/206690")
 elif(city=="Bangalore" or city=="bangalore"):
@@ -16,15 +18,19 @@ else:
     print "City not in Database.Choose a different one."
 
 
+# Web Scraping using urllib2
 
-
-text=source.read()
+htmltext=source.read()
 print("<------------------------WEATHER REPORT: "+city.upper()+"--------------------------->")
-regex='<strong class="temp">(.+?)<span>(.+?)</span></strong>'
-regex1='<span class="cond">(.+?)</span>'
-pattern=re.compile(regex)
-pattern1=re.compile(regex1)
-price=re.findall(pattern,text)
-price1=re.findall(pattern1,text)
-print "Temperature is: ",price[0][0]," degree celcius"
-print "Condition :",price1[0]
+
+# search for pattern using regular expressions (.+?)
+temperature='<strong class="temp">(.+?)<span>(.+?)</span></strong>'
+condition='<span class="cond">(.+?)</span>'
+pattern=re.compile(temperature)
+pattern1=re.compile(condition)
+
+# match pattern with htmltext
+weather_temp=re.findall(pattern,htmltext)
+weather_condition=re.findall(pattern1,htmltext)
+print "Temperature is: ",weather_temp[0][0]," degree celcius"
+print "Condition :",weather_condition[0]
