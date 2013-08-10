@@ -39,7 +39,7 @@ c = conn.cursor()
 
 
 # Insert a row of data
-c.execute("INSERT INTO wf1 VALUES (?,?)", (weather_temp[0], weather_condition[0]))
+c.execute("INSERT INTO wf VALUES (?,?)", (weather_temp[0], weather_condition[0]))
 # Save (commit) the changes
 conn.commit()
 # We can also close the connection if we are done with it.
